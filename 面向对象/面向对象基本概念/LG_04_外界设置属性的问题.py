@@ -11,13 +11,7 @@ class Cat():
 
 tom = Cat()
 #可以使用.属性名 利用赋值语句就可以了
-tom.name = "Tom"
+#tom.name = "Tom"
 tom.drink()
 tom.eat()
-#新建蓝猫
-lazy_cat = Cat()
-lazy_cat.name = "大懒猫"
-lazy_cat.eat()
-lazy_cat.drink()
-
-
+tom.name = "Tom"
