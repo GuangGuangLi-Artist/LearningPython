@@ -1,4 +1,11 @@
 #coding=utf-8
+'''
+案例小结
+实例方法 —— 方法内部需要访问 实例属性
+实例方法 内部可以使用 类名. 访问类属性
+类方法 —— 方法内部 只 需要访问 类属性
+静态方法 —— 方法内部，不需要访问 实例属性 和 类属性
+'''
 
 
 class Game():
@@ -28,6 +35,10 @@ class Game():
         print("%s 开始游戏啦" % (self.player_name))
 
 
+        #使用类名修改历史最高分
+        Game.top_score = 99
+
+
 
 #查看游戏的帮助信息
 
@@ -42,3 +53,7 @@ Game.show_top_score()
 game = Game("李广")
 
 game.start_game()
+
+
+#游戏结束，查看最高分
+Game.show_top_score()
