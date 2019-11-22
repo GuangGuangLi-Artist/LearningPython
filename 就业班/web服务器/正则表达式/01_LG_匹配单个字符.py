@@ -14,4 +14,3 @@ print(ret3.group())
 #print(ret4.group())  AttributeError: 'NoneType' object has no attribute 'group'
 print(ret5.group())
 
-http://python.usyiyi.cn/translate/python_352/index.html
