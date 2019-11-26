@@ -23,6 +23,9 @@ def main():
     #创建socket
     server_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 
+    #设置当服务器先close,即服务器四次挥手之后能够立即释放资源，这样就保证了，下次程序运行时，能够立即绑定8899端口
+    server_socket.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
+
     #绑定
     server_socket.bind(("",8899))
 
