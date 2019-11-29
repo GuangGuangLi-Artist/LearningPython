@@ -13,7 +13,6 @@ print(t.__class__)
 print(t.__dict__)
 t.run()
 
-p = t.run()
-print(p)
+
 
 
