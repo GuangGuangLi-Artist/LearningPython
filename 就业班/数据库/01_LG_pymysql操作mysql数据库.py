@@ -29,6 +29,10 @@ def main():
     # for i in range(len(result)):
     #     print(result[i])
 
+    # 循环遍历取出每条数据数据方法3
+    # for temp in cur.fetchall():
+    #     print(temp)
+
 
     #取出所有的数据
     result = cur.fetchall()
