@@ -2,12 +2,13 @@
 import socket
 import multiprocessing
 import re
-import dynamic.LG_mini_frame
+#import dynamic.LG_mini_frame
+import sys
 
 
 class WSGIServer():
 
-    def __init__(self):
+    def __init__(self,port,app,static_path):
         # 创建socket
         self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -15,10 +16,15 @@ class WSGIServer():
         self.server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
         # 绑定
-        self.server_socket.bind(("", 8899))
+        self.server_socket.bind(("", port))
 
         # 变为监听套接字
         self.server_socket.listen(128)
+
+
+        self.application = app
+
+        self.static_path = static_path
 
 
     def server_client(self,new_socker):
@@ -41,7 +47,7 @@ class WSGIServer():
         if not file_name.endswith(".py"):
             try:
                 #f = open(r"F:\传智python\课件资料\05python和linux高级编程阶段\1-6代码和截图\08-http服务器的实现-2\代码\html" + file_name, "rb")
-                f = open("./static" + file_name, "rb")
+                f = open(self.static_path + file_name, "rb")
                 # f = open(r"D:/video/传智python/课件资料/05python和linux高级编程阶段/1-6代码和截图/07-http协议、http服务器的"
                 #          r"实现-1/代码/html" + file_name, "rb")
             except:
@@ -60,7 +66,7 @@ class WSGIServer():
         else:
             env = dict()
             env["PATH"] = file_name
-            body = dynamic.LG_mini_frame.application(env,self.set_response_header)
+            body = self.application(env,self.set_response_header)
             print(self.set_response_header)
 
             header = "HTTP/1.1 %s\r\n" % self.status
@@ -92,7 +98,36 @@ class WSGIServer():
             # server_client(new_socket)
         self.server_socket.close()
 def main():
-    wsgi_server = WSGIServer()
+
+    if len(sys.argv) == 3:
+        try:
+            port = int(sys.argv[1])
+            frame_app = sys.argv[2]
+        except Exception as ret:
+            print("端口错误")
+            return
+    else:
+        print("请按照以下方式运行")
+        print("Python3 xxx,py 7890  mini_frame:application")
+        return
+
+    ret = re.match(r"([^:]+):(.*)",frame_app)
+    if ret:
+        frame_app_name = ret.group(1)
+        fun_name = ret.group(2)
+    else:
+        print("请按照以下方式运行")
+        print("Python3 06_LG_web服务器.py 7890  LG_mini_frame:application")
+        return
+
+    with open("./web_server.configure",encoding="utf-8") as f:
+        conf_info = eval(f.read()) #conf_info是字典
+
+    sys.path.append(conf_info['dynamic_path'])
+    frame = __import__(frame_app_name)
+    app = getattr(frame,fun_name)
+
+    wsgi_server = WSGIServer(port,app,conf_info['static_path'])
     wsgi_server.run_forever()
 
 
