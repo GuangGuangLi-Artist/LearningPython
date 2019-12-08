@@ -16,7 +16,7 @@ URL_FUNC_DICT = dict()
 def route(url):#<<<<------------添加的装饰器
     def set_func(func):
         URL_FUNC_DICT[url] = func
-        print(URL_FUNC_DICT)
+        #print(URL_FUNC_DICT)
         def call_func(*args,**kwargs):
             return func(*args,**kwargs)
         return call_func
@@ -181,6 +181,7 @@ def show_update_page(ret):
 
     content = re.sub(r"\{%note_info%\}", note_info, content)
     content = re.sub(r"\{%code%\}", stock_code, content)
+    #print(content)
 
     return content
 
