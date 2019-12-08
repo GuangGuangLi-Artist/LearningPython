@@ -10,9 +10,8 @@ logger.setLevel(logging.DEBUG)#Log等级开关
 
 
 #第二步，创建一个handler,用于写入日志文件
-now = time.strftime("%Y-%m-%d-%H_%M_%S",time.localtime(time.time()))
-logfile = "./" + now + ".txt"
-print(logfile)
+#now = time.strftime("%Y-%m-%d-%H_%M_%S",time.localtime(time.time()))
+logfile = "./log.txt"
 
 fh = logging.FileHandler(logfile,mode='a',encoding='utf-8') #open的打开模式这里可以进行参考
 fh.setLevel(logging.DEBUG) #输出到file的log等级
