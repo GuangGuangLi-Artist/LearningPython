@@ -5,14 +5,38 @@
     <style type="text/css">
         .box{
             background: gold;
+            width: 300px;
+            height: 300px;
         }
         body{
             margin: 0px;
+        }
+        .box1{
+            background: #007aff;
+            /*width: 200px;*/
+            /*height: 200px;*/
+            text-align: center;
+            font-size: 0;
+        }
+        .spanclass{
+            /*margin-left: 80px;*/
+            padding-left: 10px;
+            font-size: 16px;
         }
     </style>
     <title>盒子类型</title>
 </head>
 <body>
+<!--块元素 div、p、ul、li、h1~h6、dl、dt、dd-->
 <div class="box">div是一个块元素</div>
+<p class="box1">p也是一个块元素</p>
+<div class="box1">
+<!--    内联元素 a、span、em、b、strong、i -->
+    <a href="#" class="spanclass">链接文字1</a>
+    <a href="#" class="spanclass">链接文字2</a>
+    <a href="#" class="spanclass">链接文字3</a>
+</div>
+
+
 </body>
 </html>
