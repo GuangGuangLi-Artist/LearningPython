@@ -27,11 +27,19 @@
     margin-top: -1px;
 
 }
-/*.box1  .last{*/
-/*    border-bottom: 1px solid green;*/
+.box1  .last{
+    border-bottom: 1px solid green;
 
-/*}*/
+}
 
 body{
     margin: 0px;
+}
+.box2, .box3{
+    width: 200px;
+    height: 200px;
+    background: gold;
+}
+.box2 {
+    margin-bottom: 20px;
 }
