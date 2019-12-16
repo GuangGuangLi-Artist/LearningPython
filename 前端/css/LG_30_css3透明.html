@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css3透明</title>
+    <style type="text/css">
+        body{
+            background: url("../HTML/images/banner01.jpg");
+        }
+        .box{
+            width: 300px;
+            height: 100px;
+            background-color: black;
+            color: gold;
+            font-size: 30px;
+            text-align: center;
+            line-height: 100px;
+
+            /*这是设置元素透明度的完整写法，其中filter是兼容IE*/
+            opacity: 0.3;
+            filter: alpha(opacity=30);
+
+        }
+
+        .box2{
+            width: 300px;
+            height: 100px;
+            /*rgba(0,0,0,0.1) 前三个数值表示颜色，第四个数值表示颜色的透明度*/
+            background-color: rgba(0,0,0,0.1);
+            color: gold;
+            font-size: 30px;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">这是第一个div</div>
+<div class="box2">这是第二个div</div>
+</body>
+</html>
