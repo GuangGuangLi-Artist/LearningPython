@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>window-location的属性</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            var oBtn = document.getElementById('btn1');
+            var oBody = document.getElementById('body1');
+            var sData = window.location.search;
+            alert(sData);
+
+            var sHash = window.location.hash;
+            alert(sHash);
+            if(sData!=''){
+                var aRr = sData.split("=");
+                var iNum = aRr[1];
+
+                if(iNum==1){
+                    oBody.style.backgroundColor='gold';
+                }else if(iNum==2){
+                    oBody.style.backgroundColor='green';
+                }else{
+                    oBody.style.backgroundColor = 'pink';
+
+                }
+            }
+
+            oBtn.onclick = function () {
+                 //获取或者重定url地址
+                window.location.href = "http://www.baidu.com";
+
+            }
+        }
+    </script>
+</head>
+<body id="body1">
+<h1>007页面</h1>
+<input type="button" name="" value="跳转" id="btn1">
+
+</body>
+</html>
