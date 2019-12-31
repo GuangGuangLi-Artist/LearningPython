@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery</title>
+    <script type="text/javascript" src="../JS/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+
+        $(function(){
+            var $div = $('#div1');
+
+            $div.css({'color':'red'});
+
+            var $div2 = $('.box');
+
+            $div2.css({'color':'black'});
+            alert($div2.length);
+
+            var $li = $('.list li');
+
+            alert($li.length);
+
+            $li.css({'color':'pink'});
+
+            $(function () {
+
+                $('div').css({'backgroundColor':'blue'});
+                $('div').has('p').css({'backgroundColor':'pink'});
+
+
+                $('div').eq(7).css({'textIndent':'20px'});
+                $('div').eq(7).prev().css({'fontSize':'20px'});
+
+                $('div').find('.tip').css({'fontSize':'25px','color':'gold'});
+
+
+            });
+
+
+        });
+
+
+    </script>
+
+<!--    <style type="text/css">-->
+<!--        #div1{-->
+<!--            color: red;-->
+<!--        }-->
+<!--        .box{-->
+<!--            color: green;-->
+<!--        }-->
+<!--        .list li{-->
+<!--            color: pink;-->
+<!--        }-->
+<!--    </style>-->
+</head>
+<body>
+<div id="div1">这是一个div元素</div>
+<div class="box">这是第二个div</div>
+<div class="box">这是第三个div元素</div>
+
+
+<ul class="list">
+    <li>1</li>
+    <li><p>2</p></li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+</ul>
+
+<div>1</div>
+<div><p>2</p></div>
+<div>3</div>
+<div>4</div>
+<div>5</div>
+<div>6</div>
+<div>7</div>
+<div><span>8</span><span class="tip">9</span></div>
+
+
+</body>
+</html>
