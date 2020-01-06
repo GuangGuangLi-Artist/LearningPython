@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件委托</title>
+    <script type="text/javascript" src="../JS/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            /*
+
+            $('.list li').click(function () {
+                $(this).css({'backgroundColor':'red'});
+            });
+
+            */
+            // var $li = $('<li>9</li>');
+            // $('.list').append($li);
+
+
+            //事件委托的写法
+            $('.list').delegate('li','click',function () {
+                $(this).css({'backgroundColor':'red'});
+            });
+             var $li = $('<li>9</li>');
+            $('.list').append($li);
+        })
+    </script>
+    <style type="text/css">
+     .list{
+         background-color: #5bc0de;
+         list-style: none;
+         padding-top: 10px;
+     }
+
+        .list li{
+            height: 30px;
+            background-color: green;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<ul class="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+</ul>
+
+</body>
+</html>
