@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: gold;
+            display: none;
+        }
+
+    </style>
+    <script type="text/javascript" src="../JS/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+                $('#btn').click(function () {
+                    //淡出需效果
+                    // $('.box').fadeOut();
+
+                    //淡入效果
+                    // $('.box').fadeIn(1000,'swing',function () {
+                    //     alert('done');
+                    // });
+
+                    //
+                    // $('.box').fadeToggle(1000,function () {
+                    //     alert('动画结束');
+                    // });
+
+
+                     // $('.box').show();
+                     //  $('.box').toggle();
+                     // 向下展开
+                      $('.box').slideDown();
+
+
+
+                })
+        })
+    </script>
+</head>
+<body>
+<input type="button" name="" value="动画" id="btn">
+
+<div class="box"></div>
+
+</body>
+</html>

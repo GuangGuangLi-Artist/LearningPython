@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style type="text/css">
+        .btns input{
+            width: 100px;
+            height: 40px;
+            border: 0px;
+            background-color: #ddd;
+        }
+        .btns .current{
+            background-color: gold;
+
+
+        }
+
+        .cons div{
+            width: 500px;
+            height: 300px;
+            background-color: gold;
+            display: none;
+        }
+        .cons .active{
+            display: block;
+        }
+    </style>
+    <script type="text/javascript" src="../JS/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var $btn = $('.btns input');
+            var $div = $('.cons div');
+
+            $btn.click(function () {
+                $(this).addClass('current').siblings().removeClass('current');
+
+                // alert($(this).index());
+                // $('div').siblings(); //选择div的同级元素
+                $div.eq($(this).index()).addClass('active').siblings().removeClass('active');
+
+            })
+        })
+    </script>
+</head>
+<body>
+
+<div class="btns">
+    <input type="button" name="" value="01" class="current">
+    <input type="button" name="" value="02">
+    <input type="button" name="" value="03">
+
+
+
+</div>
+
+<div class="cons">
+    <div class="active">选项卡一的内容</div>
+    <div>选项卡二的内容</div>
+    <div>选项卡三的内容</div>
+</div>
+
+</body>
+</html>

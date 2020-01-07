@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标移入移出</title>
+     <script type="text/javascript" src="../JS/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            //鼠标移入到子元素时会触发
+          $('.con').mouseover(function () {
+                alert('移入');
+          });
+          $('.con').mouseout(function () {
+            alert('移出');
+
+
+
+
+
+
+            //子元素不触发
+            $('.con2').mouseenter(function () {
+                alert('enter移入');
+            });
+            $('.con2').mouseleave(function () {
+                alert('leave移出');
+            });
+
+
+            $('.con3').hover(function () {
+                alert('移入');
+            },function () {
+                alert('移出');
+            })
+          })
+        })
+    </script>
+    <style type="text/css">
+        .con,.con2,.con3{
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+        }
+        .box,.box2,.box3{
+            width: 100px;
+            height: 100px;
+            background-color: #5bc0de;
+        }
+    </style>
+</head>
+<body>
+<div class="con">
+    <div class="box">
+
+    </div>
+</div>
+
+<hr>
+
+<div class="con2">
+    <div class="box2">
+
+    </div>
+</div>
+
+<hr>
+<div class="con3">
+    <div class="box3">
+
+    </div>
+</div>
+
+
+</body>
+</html>

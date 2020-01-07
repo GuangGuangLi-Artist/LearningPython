@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../JS/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //绑定click事件
+            $('#btn').click(function () {
+                // if($('.box').hasClass('col1')){
+                //      $('.box').removeClass('col1');
+                // }else {
+                //     $('.box').addClass('col1');
+                // }
+
+                $('.box').toggleClass('col1');
+
+            })
+
+        })
+    </script>
+    <style type="text/css">
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+        }
+        .col1{
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+<input type="button" name="" value="切换" id="btn">
+<div class="box">这是一个div元素</div>
+</body>
+</html>

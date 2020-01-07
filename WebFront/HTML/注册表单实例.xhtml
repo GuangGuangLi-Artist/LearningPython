@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>注册表单实例</title>
+</head>
+<body>
+<form action="http://www.baidu.com" method="get">
+    <p>
+        <label>姓名:</label><input type="text" name="username"/>
+    </p>
+    <p>
+        <label>密码:</label><input type="password" name="password"/>
+    </p>
+    <p>
+        <label>性别:</label>
+        <input type="radio" name="gender" value="0"/>男
+        <input type="radio" name="gender" value="1"/>女
+    </p>
+    <p>
+        <label>爱好:</label>
+        <input type="checkbox" name="like" value="sing"/>唱歌
+        <input type="checkbox" name="like" value="dance"/>跳舞
+        <input type="checkbox" name ="like" value="run"/>跑步
+    </p>
+    <p>
+        <label>照片:</label>
+        <input type="file" name="persion_pic"/>
+    </p>
+    <p>
+        <label>个人描述:</label>
+        <textarea name="about"></textarea>
+    </p>
+    <p>
+        <label>籍贯:</label>
+        <select name="site">
+            <option value="0">北京</option>
+            <option value="1">上海</option>
+            <option value="2">广州</option>
+            <option value="3">深圳</option>
+        </select>
+    </p>
+    <p>
+        <input type="submit" name="" value="提交"/>
+        <!-- input类型为submit定义提交按钮
+        还可以用图片控件代替submit按钮提交，一般会导致提交两次，不建议使用。如：
+        <input type="image" src="xxx.gif">
+        -->
+        <input type="reset" name="" value="重置"/>
+    </p>
+</form>
+
+</body>
+</html>

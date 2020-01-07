@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新增选择器</title>
+    <style type="text/css">
+        /*E:nth-child(n)：匹配元素类型为E且是父元素的第n个子元素*/
+        .con div:nth-child(2){
+            color: red;
+        }
+        .con div:nth-child(3){
+            color: pink;
+        }
+
+        .list li:first-child{
+            background-color: #666666;
+        }
+        .list li:last-child{
+            background-color: #007aff;
+        }
+
+        .list2 li:nth-child(2n){
+            background-color: #4cae4c;
+        }
+        .list2 li:nth-child(2n+1){
+            background-color: #5bc0de;
+        }
+    </style>
+</head>
+<body>
+<div class="con">
+    <h3>标题</h3>
+    <div>这是第一个div</div>
+    <div>这是第二个div</div>
+</div>
+<ul class="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+</ul>
+<ul class="list2">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+</ul>
+
+</body>
+</html>

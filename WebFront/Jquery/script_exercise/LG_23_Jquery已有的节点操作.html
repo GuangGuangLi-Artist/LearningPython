@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>已有的节点操作</title>
+    <script type="text/javascript" src="../JS/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#p1').insertBefore($('#title1'));
+
+            $('#span1').appendTo($('#p1'));
+
+            $('#link1').prependTo($('#p1'));
+
+            $('#title1').remove();
+        })
+    </script>
+</head>
+<body>
+
+<h1 id="title1">这是一个h1</h1>
+<p id="p1">这是一个p元素</pid>
+<span id="span1">这是span</span>
+    <a href="#" id="link1">链接</a>
+
+</body>
+</html>
