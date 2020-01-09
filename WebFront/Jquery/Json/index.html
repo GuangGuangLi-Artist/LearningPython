@@ -1,66 +1,33 @@
-<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>test</title>
+    <title>360关键词联想</title>
     <script type="text/javascript" src="JS/jquery-1.12.4.min.js"></script>
     <script type="text/javascript">
         $(function () {
-
-        $.ajax({
-            url:'data.json',
-            type:'GET',
-            dataType: 'json'
-        })
-            .done(function (dat) {
-                $('#username').html(dat.name);
-                $('#userage').html(dat.age);
-
+            $('#txt01').keyup(function () {
+                var sVal = $(this).val();
+                $.ajax({
+                    url:"https://sug.so.360.cn/suggest?",
+                    type:"GET",
+                    datatype: "jsonp",
+                    data:{word:sVal}
+                })
+                .done(function (data) {
+                    var aDtat = data.s;
+                    $('.list').empty();
+                    for(var i=0;i<aDtat.length;i++){
+                        var $li = $('<li>' + aDtat[i] + '</li>');
+                        $li.appendTo($('.list'));
+                    }
+                })
             })
-
-        .fail(function () {
-            alert('服务器超时');
         })
-
-        })
-
     </script>
 </head>
 <body>
-<p>姓名:<span id="username"></span></p>
-<p>年龄:<span id="userage"></span></p>
-</body>
-</html>-->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<script type="text/javascript" src="JS/jquery-1.12.4.min.js"></script>
-	<script type="text/javascript">
-		$(function(){
-
-			$.ajax({
-			url:'data.json',
-			type:'get',
-			dataType:'json'
-			})
-			.done(function(dat){
-				$('#username').html(dat.name);
-				$('#userage').html(dat.age);
-
-			})
-			.fail(function(){
-				alert('服务器超时！');
-			})
-		})
-
-	</script>
-</head>
-<body>
-	<p>姓名：<span id="username"></span></p>
-	<p>年龄：<span id="userage"></span></p>
+<input type="text" name="" id="txt01">
+<ul class="list"></ul>
 </body>
 </html>

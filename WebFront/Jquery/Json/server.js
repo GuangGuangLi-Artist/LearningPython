@@ -36,6 +36,8 @@ var mimeTypes = {
     "png": "image/png",
     "gif": "image/gif",
     "js": "text/javascript",
+    "json": "text/json",
+    //"Access-Control-Allow-Origin": "*",
     "css": "text/css"};
 
 var virtualDirectories = {
