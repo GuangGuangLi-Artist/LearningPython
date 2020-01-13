@@ -12,3 +12,7 @@ class BookInfo(models.Model):
 
     #说明是一个日期类型
     bpub_date = models.DateField()
+
+
+    def __str__(self):
+        return self.btitle
