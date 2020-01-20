@@ -3,6 +3,7 @@ from django.shortcuts import render,redirect
 from booktest.models import BookInfo
 from datetime import date
 from django.http import HttpResponse,HttpResponseRedirect,JsonResponse
+from datetime import datetime,timedelta
 # Create your views here.
 
 def index(request):
@@ -52,7 +53,16 @@ def show_namenum(request,num):
 
 
 def login(request):
-    return render(request,'booktest/login.html')
+
+    #判断用户是否登陆
+    if request.session.has_key('islogin'):
+        return redirect('/index')
+    else:
+        if 'username' in request.COOKIES:
+            username = request.COOKIES['username']
+        else:
+            username = ''
+        return render(request,'booktest/login.html',{'username':username})
 
 
 def login_check(request):
@@ -81,8 +91,17 @@ def login_check(request):
     username = request.POST.get('username')
     password = request.POST.get('password')
 
+    #获取书否需要记住用户名
+    remember = request.POST.get('remember')
+    print(remember)
+
     if username == 'liguang' and password == '123456':
-        return JsonResponse({'res':1})
+        #先判断是否需要记住用户名
+        response = JsonResponse({'res':1})
+        if remember == 'on':
+            response.set_cookie('username',username,max_age=7*24*3600)
+        request.session['islogin'] = True
+        return response
     else:
         return JsonResponse({'res':0})#ajax的请求在后台，需要返回json,千万不要重定向
 
@@ -95,4 +114,34 @@ def ajax_handle(request):
     return JsonResponse({'res':1})
 
 
+def set_cookie(request):
+    response = HttpResponse('设置cookie')
 
+    response.set_cookie('num',1,max_age=14*24*3600)
+    # response.set_cookie('num',2,expires=datetime.now()+timedelta(days=14))
+
+    return response
+
+
+
+def get_cookie(request):
+
+    num = request.COOKIES['num']
+    return HttpResponse(num)
+
+def set_session(request):
+    request.session['username'] = 'liguang'
+    request.session['age'] = 18
+    return HttpResponse('设置session')
+
+def get_session(request):
+    username = request.session['username']
+    age = request.session['age']
+
+
+    return HttpResponse(username + ':' + str(age))
+
+
+def clear_session(request):
+    request.session.clear()
+    return HttpResponse('清除session成功')
