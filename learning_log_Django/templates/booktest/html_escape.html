@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{{ content }}
+<br>
+使用safe过滤器关闭转义：
+{{ content|safe }}
+
+使用qutoescape过滤器关闭转义：
+{% autoescape off %}
+    {{ content }}
+{% endautoescape %}
+
+</body>
+</html>

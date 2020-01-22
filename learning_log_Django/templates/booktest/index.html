@@ -1,15 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+{#引入自己自定义的过滤器#}
+{% load filters %}
 <head>
     <meta charset="UTF-8">
     <title>图书信息</title>
+    <style type="text/css">
+        .red{
+            background-color: red;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+        .green{
+            background-color: green;
+        }
+    </style>
 </head>
 <body>
 <a href="http://127.0.0.1:8000/create">新增</a>
 <ul>
     {% for book in books %}
-        <li>{{ book.btitle }}--<a href="/delete{{ book.id }}">删除</a></li>
+{#        {% if book.id <= 2 %}#}
+        {% if book.id|mod %}
+            <li class="red">{{ forloop.counter }}--{{ book.btitle }}--{{ book.bpub_date|date:'Y年-m月-d日'}}--<a href="/delete{{ book.id }}">删除</a></li>
+        {% elif book.id|mod_val:3 %}
+            <li class="yellow">{{ forloop.counter }}--{{ book.btitle }}--{{ book.bpub_date|date:'Y年-m月-d日'}}--<a href="/delete{{ book.id }}">删除</a></li>
+        {% else %}
+            <li class="green">{{ forloop.counter }}--{{ book.btitle }}--{{ book.bpub_date|date:'Y年-m月-d日'}}--<a href="/delete{{ book.id }}">删除</a></li>
+        {% endif %}
     {% endfor %}
 </ul>
+default过滤器:<br>
+{{ content|default:'hello python' }}
+<br>
+模板注释多行注释:
+{% comment %}
+<h1>1</h1>
+<h2>2</h2>
+<h3>3</h3>
+{% endcomment %}
 </body>
 </html>

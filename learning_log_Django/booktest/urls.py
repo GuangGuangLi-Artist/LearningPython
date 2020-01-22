@@ -5,6 +5,7 @@ from booktest import views
 
 urlpatterns = [
    url(r'^index$',views.index),
+   url(r'^show_index2$', views.show_index2),
    url(r'^create$',views.create),
    url(r'^delete(\d+)$',views.delete),
    url(r'^error$',views.error),
@@ -19,6 +20,9 @@ urlpatterns = [
    url(r'^set_session$',views.set_session),
    url(r'^get_session$', views.get_session),
    url(r'^clear_session$',views.clear_session),
+   url(r'^temp_var$',views.temp_var),
+   url(r'^temp_inherit$',views.temp_inherit),
+   url(r'^html_escape$',views.html_escape),
 
 
 ]

@@ -145,3 +145,25 @@ def get_session(request):
 def clear_session(request):
     request.session.clear()
     return HttpResponse('清除session成功')
+
+def show_index2(request):
+    return render(request,'booktest/index2.html')
+
+
+def temp_var(request):
+    '''模板变量'''
+    my_dict = {'title':'字典键值'}
+    my_list = [1,2,3]
+    book = BookInfo.objects.get(id=1)
+    context = {'my_dict':my_dict,'my_list':my_list,'book':book}
+
+    return  render(request,'booktest/temp_var.html',context)
+
+
+def temp_inherit(request):
+    '''模板继承'''
+    return render(request,'booktest/child.html')
+
+
+def html_escape(request):
+    return render(request,'booktest/html_escape.html',{'content':'<h1>hello</h1>'})

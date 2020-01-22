@@ -1,0 +1,7 @@
+{#继承的模板是base#}
+{% extends 'booktest/base.html' %}
+{% block title %}子模版文件{% endblock title %}
+{% block b1 %}
+    {{ block.super }}
+    <p>这是重写了父模板b1</p>
+{% endblock b1 %}
