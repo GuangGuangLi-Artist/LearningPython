@@ -4,7 +4,7 @@ from booktest import views
 
 
 urlpatterns = [
-   url(r'^index$',views.index),
+   url(r'^index$',views.index,name='index'),
    url(r'^show_index2$', views.show_index2),
    url(r'^create$',views.create),
    url(r'^delete(\d+)$',views.delete),
@@ -23,6 +23,9 @@ urlpatterns = [
    url(r'^temp_var$',views.temp_var),
    url(r'^temp_inherit$',views.temp_inherit),
    url(r'^html_escape$',views.html_escape),
+   url(r'^url_reverse$',views.url_reverse),
+   url(r'^change_pwd$',views.change_pwd),
+   url(r'^change_pwd_action$',views.change_pwd_action),
 
 
 ]

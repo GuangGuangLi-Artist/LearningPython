@@ -6,6 +6,17 @@ from django.http import HttpResponse,HttpResponseRedirect,JsonResponse
 from datetime import datetime,timedelta
 # Create your views here.
 
+
+def login_required(view_func):
+    '''登录判断装饰器'''
+    def wrapper(request, *view_args, **view_kwargs):
+        if request.session.has_key('islogin'):
+            #用户已登录，调用对应的函数
+            return view_func(request,*view_args,**view_kwargs)
+        else:
+            return redirect('/login')
+    return wrapper
+
 def index(request):
     '''显示图书信息'''
     #1查询所有的图书信息
@@ -167,3 +178,25 @@ def temp_inherit(request):
 
 def html_escape(request):
     return render(request,'booktest/html_escape.html',{'content':'<h1>hello</h1>'})
+
+
+def url_reverse(request):
+    return render(request,'booktest/url_reverse.html')
+
+@login_required
+def change_pwd(request):
+    '''显示修改密码页面'''
+    # if not request.session.has_key('islogin'):
+    #     return
+
+    return render(request,'booktest/change_pwd.html')
+
+@login_required
+def change_pwd_action(request):
+    '''模拟修改密码处理'''
+
+    #获取新密码
+    pwd = request.POST.get('pwd')
+    username = request.session.get('username')
+    return HttpResponse('%s修改密码为:%s'%(username,pwd))
+
