@@ -96,6 +96,21 @@ class EmployDetailInfo(models.Model):
 '''
 
 class AreaInfo(models.Model):
-    atitle = models.CharField(max_length=20)
+    atitle = models.CharField(verbose_name='标题',max_length=20)
 
     aParent = models.ForeignKey('self',null=True,blank=True)
+
+    def __str__(self):
+        return self.atitle
+
+
+    def title(self):
+        return self.atitle
+    title.admin_order_files = 'atitle'
+    title.short_description = '地区名称'
+
+    def parent(self):
+        if self.aParent is None:
+            return ''
+        return self.aParent.atitle
+    parent.short_description = '父级地区名称'

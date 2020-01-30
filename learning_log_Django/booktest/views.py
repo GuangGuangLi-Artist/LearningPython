@@ -1,9 +1,10 @@
 #导入重定向函数
 from django.shortcuts import render,redirect
-from booktest.models import BookInfo
+from booktest.models import BookInfo,AreaInfo
 from datetime import date
 from django.http import HttpResponse,HttpResponseRedirect,JsonResponse
 from datetime import datetime,timedelta
+from django.core.paginator import Paginator
 # Create your views here.
 
 
@@ -199,4 +200,58 @@ def change_pwd_action(request):
     pwd = request.POST.get('pwd')
     username = request.session.get('username')
     return HttpResponse('%s修改密码为:%s'%(username,pwd))
+
+
+def show_area(request,pindex):
+    '''分页'''
+    #查询出所有省级的信息
+    areas = AreaInfo.objects.filter(aParent__isnull=True)
+    #分页
+    paginator = Paginator(areas,10)
+    print(paginator.num_pages)
+    print(paginator.page_range)
+    if pindex == '':
+        pindex = 1
+    else:
+        pindex = int(pindex)
+    page = paginator.page(int(pindex))
+    print(page.number)
+
+    return  render(request,'booktest/show_area.html',{'page':page})
+
+
+def areas(request):
+    return render(request,'booktest/areas.html')
+
+
+def prov(request):
+    areas = AreaInfo.objects.filter(aParent__isnull=True)
+
+    areas_list = []
+    for area in areas:
+        areas_list.append((area.id,area.atitle))
+
+    return JsonResponse({'data':areas_list})
+
+
+
+def city(request, pid):
+    '''获取pid的下级地区的信息'''
+    # 1.获取pid对应地区的下级地区
+    # area = AreaInfo.objects.get(id=pid)
+    # areas = area.areainfo_set.all()
+    areas = AreaInfo.objects.filter(aParent__id=pid)
+
+    # 2.变量areas并拼接出json数据：atitle id
+    areas_list = []
+    for area in areas:
+        areas_list.append((area.id, area.atitle))
+
+    # 3.返回数据
+    return JsonResponse({'data': areas_list})
+
+
+
+
+
 

@@ -26,6 +26,10 @@ urlpatterns = [
    url(r'^url_reverse$',views.url_reverse),
    url(r'^change_pwd$',views.change_pwd),
    url(r'^change_pwd_action$',views.change_pwd_action),
+   url(r'^show_area(?P<pindex>\d*)$',views.show_area),
+   url(r'^areas$',views.areas),
+   url(r'^prov$',views.prov),
+   url(r'^city(\d+)$',views.city),
 
 
 ]
