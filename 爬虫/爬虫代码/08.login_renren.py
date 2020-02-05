@@ -20,6 +20,7 @@ def main():
     con = requests.get("http://www.renren.com/526950701/profile",headers=headers,cookies=cookies)
 
 
+
     #保存页面
     with open("renren2.html","w",encoding="utf-8") as file:
         file.write(con.content.decode())
