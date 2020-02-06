@@ -29,5 +29,23 @@
 import requests
 requests.utils.unquote("https://tieba.baidu.com/f?kw=%E6%9D%8E%E6%AF%85%E5%90%A7")
 requests.utils.quote("https://tieba.baidu.com/f?kw=李毅吧")
-```
 
+```
+### json使用注意点
+- json中的自符串都是双引号引起来的
+    - 如果不是双引号
+        - eval:能实现简单的字符串和python类型的转化
+        - replace: 把单引号替换为双引号
+        
+- 往一个文件中写入多个json串，不再是一个json串，不能直接读取
+    - 一行写一个json串，按照行来读取
+    
+```python
+import json
+#json.dumps()用于将dict类型的数据转成str，因为如果直接将dict类型的数据写入json文件中会发生报错，因此在将数据写入时需要用到该函数。
+name_emb = {'a':'1111','b':'2222','c':'3333','d':'4444'}
+jsObj = json.dumps(name_emb)
+print(jsObj)
+print(type(name_emb))
+print(type(jsObj))
+```

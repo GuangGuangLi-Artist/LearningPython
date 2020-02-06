@@ -30,6 +30,7 @@ urlpatterns = [
    url(r'^areas$',views.areas),
    url(r'^prov$',views.prov),
    url(r'^city(\d+)$',views.city),
+   url(r'^return_json$',views.return_json),
 
 
 ]

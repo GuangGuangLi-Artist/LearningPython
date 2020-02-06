@@ -251,6 +251,11 @@ def city(request, pid):
     return JsonResponse({'data': areas_list})
 
 
+def return_json(request):
+    
+    return JsonResponse({"name":"李广","age":"28","sex":"man"})
+
+
 
 
 
