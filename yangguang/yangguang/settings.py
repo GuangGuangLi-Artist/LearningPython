@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for mySpider project
+# Scrapy settings for yangguang project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,20 +9,18 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'mySpider'
+BOT_NAME = 'yangguang'
 
-SPIDER_MODULES = ['mySpider.spiders']
-NEWSPIDER_MODULE = 'mySpider.spiders'
-
-LOG_LEVEL = 'WARNING'
-LOG_FILE = "./log.txt"
+SPIDER_MODULES = ['yangguang.spiders']
+NEWSPIDER_MODULE = 'yangguang.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'mySpider (+http://www.yourdomain.com)'
+USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.116 Safari/537.36'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
+LOG_LEVEL = "WARNING"
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -50,13 +48,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'mySpider.middlewares.MyspiderSpiderMiddleware': 543,
+#    'yangguang.middlewares.YangguangSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'mySpider.middlewares.MyspiderDownloaderMiddleware': 543,
+#    'yangguang.middlewares.YangguangDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -68,8 +66,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'mySpider.pipelines.MyspiderPipeline': 300,
-   'mySpider.pipelines.MyspiderPipeline1': 301,
+   'yangguang.pipelines.YangguangPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

@@ -2,6 +2,8 @@
 import scrapy
 import logging
 
+logger = logging.getLogger(__name__)
+
 
 class ItcastSpider(scrapy.Spider):
     name = 'itcast'
@@ -15,9 +17,16 @@ class ItcastSpider(scrapy.Spider):
 
 
         #分组
-        li_list = response.xpath("//div[@class='tea_con']//li")
-        for li in li_list:
+        # li_list = response.xpath("//div[@class='tea_con']//li")
+        # for li in li_list:
+        #     item = {}
+        #     item['name'] = li.xpath(".//h3/text()").extract_first()
+        #     item['title'] = li.xpath(".//h4/text()").extract_first()
+        #     yield item  #yiled的作用是防止内存占用过度
+
+        for i in range(10):
             item = {}
-            item['name'] = li.xpath(".//h3/text()").extract_first()
-            item['title'] = li.xpath(".//h4/text()").extract_first()
-            yield item  #yiled的作用是防止内存占用过度
+            item["come_from"] = "itcast"
+            logger.warning(item)
+            yield item
+
