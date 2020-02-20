@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for yangguang project
+# Scrapy settings for renrenlogin project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,18 +9,20 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'yangguang'
+BOT_NAME = 'renrenlogin'
 
-SPIDER_MODULES = ['yangguang.spiders']
-NEWSPIDER_MODULE = 'yangguang.spiders'
+SPIDER_MODULES = ['renrenlogin.spiders']
+NEWSPIDER_MODULE = 'renrenlogin.spiders'
+
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.116 Safari/537.36'
+#USER_AGENT = 'renrenlogin (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
-LOG_LEVEL = "DEBUG"
+# LOG_LEVEL="WARNING"
+COOKIES_DEBUG=True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -48,13 +50,13 @@ LOG_LEVEL = "DEBUG"
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'yangguang.middlewares.YangguangSpiderMiddleware': 543,
+#    'renrenlogin.middlewares.RenrenloginSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'yangguang.middlewares.YangguangDownloaderMiddleware': 543,
+#    'renrenlogin.middlewares.RenrenloginDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -65,9 +67,9 @@ LOG_LEVEL = "DEBUG"
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-   'yangguang.pipelines.YangguangPipeline': 300,
-}
+#ITEM_PIPELINES = {
+#    'renrenlogin.pipelines.RenrenloginPipeline': 300,
+#}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

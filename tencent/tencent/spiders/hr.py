@@ -29,3 +29,4 @@ class HrSpider(scrapy.Spider):
 
     def parse1(self,response):
         response.meta["item"]
+
