@@ -1,4 +1,9 @@
-from matplotlib import pyplot as plt
+#coding=utf-8
+
+
+
+
+from  matplotlib import pyplot as plt
 
 
 x = range(2,26,2)
