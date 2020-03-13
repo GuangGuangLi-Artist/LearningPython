@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>闪现</h1>
+{% for msg in get_flashed_messages() %}}
+    <p>{{ msg }}</p>
+{% endfor %}
+
+{% macro input() %}
+    <input type="text" value="" size="" >
+{% endmacro %}
+
+<h1>input 1</h1>
+{{ input() }}
+
+<h1>input 2</h1>
+{{ input() }}
+
+<hr>
+
+
+{% macro input2(type,value,size) %}
+    <input type="{{ type }}" value="{{ value }}" size="{{ size }}" >
+{% endmacro %}
+
+<h1>input2 1</h1>
+{{ input2("password","123","50") }}
+<hr>
+
+
+{% macro input3(type="text",value="123",size="100") %}
+    <input type="{{ type }}" value="{{ value }}" size="{{ size }}" >
+{% endmacro %}
+
+<h1>input3 1</h1>
+{{ input3() }}
+<hr>
+
+{% import 'macro_input.html' as m_input %}
+{{ m_input.input4() }}
+
+
+</body>
+</html>
