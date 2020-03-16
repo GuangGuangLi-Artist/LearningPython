@@ -41,6 +41,7 @@ class Author(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     name = db.Column(db.String(32),unique=True)
     books = db.relationship("Book",backref="author")
+    email = db.Column(db.String(64),unique=True)
 
 
 class Book(db.Model):
