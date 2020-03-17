@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route("/login",methods=["POST"])
 def login():
     #接受参数
-    user_name = request.form.get("username")
+    user_name = request.form.get("user_name")
     password = request.form.get("password")
     #参数判断
     if not all([user_name,password]):
@@ -17,7 +17,7 @@ def login():
         }
         return jsonify(resp)
 
-    if user_name == "admin" and password == "python":
+    elif user_name == "admin" and password == "python":
         resp = {
             "code": 200,
             "msg": "login success"
