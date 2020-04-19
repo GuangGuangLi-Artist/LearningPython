@@ -19,5 +19,6 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('booktest.urls',namespace='booktest')),
+    url(r'^a',include('InterfaceAutoTest.urls',namespace='InterfaceAutoTest'))
 
 ]

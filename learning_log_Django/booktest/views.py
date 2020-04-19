@@ -257,6 +257,11 @@ def return_json(request):
 
 
 
+def interface_login(request):
+    return HttpResponse("this is a get interface")
+
+
+
 
 
 

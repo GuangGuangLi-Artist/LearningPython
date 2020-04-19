@@ -31,6 +31,7 @@ urlpatterns = [
    url(r'^prov$',views.prov),
    url(r'^city(\d+)$',views.city),
    url(r'^return_json$',views.return_json),
+   url(r'^interface_login$',views.interface_login),
 
 
 ]
