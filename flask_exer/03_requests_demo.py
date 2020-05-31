@@ -1,12 +1,12 @@
 #coding=utf-8
 
-from flask import  request
+from flask import  request,render_template
 from flask import Flask
 import json
 
 app = Flask(__name__)
 
-@app.route("/index",methods=["POST","GET"])
+@app.route("/index",methods=["POST"])
 def index():
 
     #request中包含了所有从前端发送过来的数据，通过request.form可以提取请求体中的表单格式的数据，是一个类字典的对象
@@ -18,6 +18,7 @@ def index():
     # print(request.form)
     city = request.args.get("city")
     return "hello name=%s,age=%s,city=%s,name_li=%s" %(name,age,city,name_li)
+    # return render_template("res_login.html",name=name,age=age,city=city,)
 
 
 @app.route("/upload",methods=["POST"])
