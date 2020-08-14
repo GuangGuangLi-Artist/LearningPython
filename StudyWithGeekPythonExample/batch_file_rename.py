@@ -3,7 +3,8 @@ import os
 import argparse
 
 def batch_rename(work_dir,old_ext,new_ext):
-    #files = os.listdir(work_dir)
+    files = os.listdir(work_dir)
+    print(files)
     for filename in os.listdir(work_dir):
         split_file = os.path.splitext(filename)
 
@@ -41,7 +42,7 @@ def main():
     if new_ext[0] != '.':
         new_ext = '.' + new_ext
 
-    batch_rename("F:\test_batch_rename","txt","py")
+    batch_rename(work_dir,old_ext,new_ext)
     #batch_rename(work_dir, old_ext, new_ext)
 
 
