@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {"editor.fontSize": 14, 
+				"window.zoomLevel": 1.5
+			}
+}
